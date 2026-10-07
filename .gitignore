@@ -1,0 +1,51 @@
+# Dart
+.dart_tool/
+.artifacts/
+
+# Flutter
+flutter_*.dart
+flutter_*.gradle
+flutter_export_environment.sh
+gradle.properties
+
+# Android
+android/app/debug.keystore
+android/app/google-services.json
+android/app/build/
+android/app/.idea/
+android/gradle/
+android/.gradle/
+android/.idea/
+
+# iOS
+ios/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build
+build/
+debug_symbols/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pub
+.packages
+pubspec.lock
+
+# Testing
+.coverage

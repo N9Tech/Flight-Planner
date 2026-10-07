@@ -1,0 +1,26 @@
+include ':app'
+
+def flutterProjectRoot = rootProject.projectDir
+
+def flutterPluginRoot = rootProject.projectDir.parentFile.parentFile
+
+if (flutterPluginRoot.exists() && flutterPluginRoot.name == 'flutter') {
+    def plugins = new Properties()
+    def pluginsFile = new File(flutterPluginRoot.parentFile, '.flutter-plugins')
+    if (pluginsFile.exists()) {
+        plugins.load(new FileInputStream(pluginsFile))
+    }
+
+    def pluginClasspath = new ArrayList()
+    plugins.each { name, path ->
+        def pluginDirectory = flutterProjectRoot.parentFile.resolve(path).resolve('android').resolve('build.gradle')
+        if (pluginDirectory.exists()) {
+            pluginClasspath.add(pluginDirectory)
+        }
+    }
+    if (pluginClasspath.isEmpty()) {
+        settingsFile = file(settingsDir.path + "/../.flutter-plugins-settings")
+    }
+}
+
+include ':app'
